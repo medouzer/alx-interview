@@ -4,6 +4,7 @@
 """
 
 def make_arr(arr, n):
+    """this also"""
     table = [1]
     if(n == 0):
         return (table)
@@ -13,6 +14,7 @@ def make_arr(arr, n):
     return (table)
 
 def pascal_triangle(n):
+    """this function to"""
     res = [[1]]
     for index in range(1, n):
         res.append( make_arr(res[index - 1], index) )
