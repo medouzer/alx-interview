@@ -13,8 +13,8 @@ def do_action(my_queue, boxes, index):
     my_queue.append(index)
     for key in boxes[index]:
         do_action(my_queue, boxes, key)
-        
- 
+
+
 def canUnlockAll(boxes):
     """function canUnlockAll"""
     my_queue = deque()
