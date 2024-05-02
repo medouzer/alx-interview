@@ -18,6 +18,10 @@ def do_action(my_queue, boxes, index):
 def canUnlockAll(boxes):
     """function canUnlockAll"""
     my_queue = deque()
+    if type(boxes) is not list:
+        return False
+    elif (len(boxes)) == 0:
+        return False
     do_action(my_queue, boxes, 0)
     for i in range(0, len(boxes)):
         if (i not in my_queue):
