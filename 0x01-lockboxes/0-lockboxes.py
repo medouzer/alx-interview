@@ -23,7 +23,7 @@ def canUnlockAll(boxes):
     elif (len(boxes)) == 0:
         return False
     do_action(my_queue, boxes, 0)
-    for i in range(0, len(boxes)):
+    for i in range(0, len(boxes) - 1):
         if (i not in my_queue):
             return False
     return True
