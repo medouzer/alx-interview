@@ -17,6 +17,7 @@ def print_log(log: Dict[str, Union[int, Dict[str, int]]]) -> None:
         if log["code_frequency"][code]:
             print(f"{code}: {log['code_frequency'][code]}")
 
+
 if __name__ == "__main__":
     """main"""
     regex = r'^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3} - \[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d+\] "GET /projects/260 HTTP/1.1" (\d+) (\d+)'
@@ -30,7 +31,7 @@ if __name__ == "__main__":
 
     try:
         for line in sys.stdin:
-            # line = line.strip()
+            line = line.strip()
             match = re.match(regex, line)
             if match:
                 line_count += 1
