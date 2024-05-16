@@ -5,9 +5,9 @@ Log parsing script
 
 import sys
 import re
-from typing import Dict, Union
+from typing import Dict
 
-def print_log(log: Dict[str, Union[int, Dict[str, int]]]) -> None:
+def print_log(log: Dict) -> None:
     """
     Helper function to print log
     """
