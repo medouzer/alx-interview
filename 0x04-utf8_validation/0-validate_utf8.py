@@ -23,5 +23,5 @@ def validUTF8(data):
             if ( not (item & 1 << 7) or (item & 1 << 6)):
                 return False
         n_bytes -= 1
-    
+
     return n_bytes == 0
