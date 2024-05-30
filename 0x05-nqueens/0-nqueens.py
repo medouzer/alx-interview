@@ -3,14 +3,16 @@
 
 import sys
 
+
 def printSolution(board, N):
     for i in range(N):
         for j in range(N):
             if board[i][j] == 1:
-                print("Q",end=" ")
+                print("Q", end=" ")
             else:
-                print(".",end=" ")
+                print(".", end=" ")
         print()
+
 
 def create_board(size):
     board = []
@@ -30,7 +32,6 @@ def safe_place(board, col, row, N):
     for i, j in zip(range(row, -1, -1), range(col, -1, -1)):
         if board[i][j] == 1:
             return False
- 
     for i, j in zip(range(row, N, 1), range(col, -1, -1)):
         if board[i][j] == 1:
             return False
@@ -47,15 +48,14 @@ def solve_it(board, N, col, solutions):
                     solution.append([i, j])
         solutions.append(solution)
         return
-    
     for i in range(N):
         if safe_place(board, col, i, N):
             board[i][col] = 1
-            if (solve_it(board, N, col + 1, solutions) == True):
+            if (solve_it(board, N, col + 1, solutions) is True):
                 return True
             board[i][col] = 0
     return False
-      
+
 
 def n_queens(N: int):
     """the function that solve the probleme"""
@@ -80,4 +80,3 @@ if __name__ == "__main__":
         print("N must be at least 4")
         sys.exit(1)
     n_queens(num)
-
