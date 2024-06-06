@@ -5,21 +5,21 @@ const request = require('request');
 
 const url = 'https://swapi-api.hbtn.io/api/films/' + argv[2];
 
-const get_characters = (url) => {
+const getCharacters = (url) => {
   request(url, async (err, res, body) => {
     if (err) {
       console.log(err);
     } else {
       const characters = JSON.parse(body).characters;
       for (const character of characters) {
-        const name = await get_name(character);
+        const name = await getName(character);
         console.log(name);
       }
     }
   });
 };
 
-const get_name = (url) => {
+const getName = (url) => {
   return new Promise((resolve, reject) => {
     request(url, (err, res, body) => {
       if (err) {
@@ -31,4 +31,4 @@ const get_name = (url) => {
   });
 };
 
-get_characters(url);
+getCharacters(url);
