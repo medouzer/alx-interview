@@ -4,6 +4,8 @@
 
 def isWinner(x, nums):
     """isWinner function"""
+    if x < 1 or not nums:
+        return None
     maria_wins, ben_wins = 0, 0
 
     n = max(nums)
