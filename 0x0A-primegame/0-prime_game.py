@@ -17,11 +17,9 @@ def play_game(n):
     primes = [num for num, prime in enumerate(is_prime) if prime]
     turn = 0
     while primes:
-        # if len(primes) != 1:
         turn += 1
-        p = primes.pop(0)
-        primes = [prime for prime in primes if prime % p != 0]
-        # primes = primes[1:]
+        primes = [prime for prime in primes if prime % primes[0] != 0]
+        primes = primes[1:]
     return turn % 2
 
 
