@@ -28,7 +28,8 @@ def isWinner(x, nums):
     maria_wins = 0
     ben_wins = 0
 
-    for n in nums:
+    for i in range(x):
+        n = nums[i]
         if play_game(n) == 0:
             maria_wins += 1
         else:
