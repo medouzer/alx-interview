@@ -4,34 +4,22 @@
 
 def isWinner(x, nums):
     """isWinner function"""
-    def play_game(n):
-        """play_game function"""
-        if n < 2:
-            return 1
-        is_prime = [True] * (n + 1)
-        is_prime[0] = is_prime[1] = False
-        p = 2
-        while p * p <= n:
-            if is_prime[p]:
-                for i in range(p * p, n + 1, p):
-                    is_prime[i] = False
-            p += 1
-        primes = [num for num, prime in enumerate(is_prime) if prime]
-        turn = 0
-        while primes:
-            turn += 1
-            primes = [prime for prime in primes if prime % primes[0] != 0]
-            primes = primes[1:]
-        return turn % 2
-    maria_wins = 0
-    ben_wins = 0
+    maria_wins, ben_wins = 0, 0
 
-    for i in range(x):
-        n = nums[i]
-        if play_game(n) == 0:
-            maria_wins += 1
-        else:
-            ben_wins += 1
+    n = max(nums)
+    primes = [True for _ in range(1, n + 1, 1)]
+    primes[0] = False
+
+    for i, is_prime in enumerate(primes, 1):
+        if i == 1 or not is_prime:
+            continue
+        for j in range(i + i, n + 1, i):
+            primes[j - 1] = False
+
+    for _, n in zip(range(x), nums):
+        primes_count = len(list(filter(lambda x: x, primes[0: n])))
+        ben_wins += primes_count % 2 == 0
+        maria_wins += primes_count % 2 == 1
 
     if maria_wins > ben_wins:
         return "Maria"
