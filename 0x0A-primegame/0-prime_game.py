@@ -27,6 +27,9 @@ def isWinner(x, nums):
     """isWinner function"""
     maria_wins = 0
     ben_wins = 0
+    
+    if x > 10000:
+        return None
 
     for i in range(x):
         n = nums[i]
